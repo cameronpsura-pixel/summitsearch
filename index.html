@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#081526">
+<title>SummitSearch — Explore · Learn · Grow</title>
+<style>
+:root{color-scheme:dark;--blue:#42b5ff;--line:rgba(145,190,232,.28)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#f6f9ff;background:#071322}
+.sky{position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at 88% 42%,#ffb46e 0,rgba(255,143,106,.42) 12%,transparent 35%),linear-gradient(180deg,#10213b 0%,#294c73 42%,#182d4b 61%,#071322 85%)}
+.mountains{position:fixed;inset:38% -5% 0;z-index:-1;pointer-events:none;background:linear-gradient(155deg,transparent 0 21%,#132d4e 21.2% 32%,transparent 32.2%),linear-gradient(25deg,transparent 0 23%,#0b2340 23.2% 43%,transparent 43.2%),linear-gradient(160deg,transparent 0 34%,#0a1b31 34.2% 52%,transparent 52.2%),linear-gradient(15deg,#06111f 0 48%,transparent 48.2%);opacity:.95}
+header{min-height:68px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px clamp(18px,4vw,58px);background:rgba(6,17,31,.4);backdrop-filter:blur(12px)}
+.brand{display:flex;gap:12px;align-items:center;font-weight:800;font-size:clamp(20px,2.1vw,28px);letter-spacing:-.8px}.brand b{color:var(--blue)}
+.logo{width:42px;height:32px;position:relative;flex:none}.logo:before{content:"";position:absolute;left:0;bottom:0;border-left:17px solid transparent;border-right:17px solid transparent;border-bottom:27px solid #278cf0}.logo:after{content:"";position:absolute;left:13px;bottom:0;border-left:14px solid transparent;border-right:14px solid transparent;border-bottom:32px solid #48c2ff}
+nav{display:flex;gap:20px;flex-wrap:wrap}nav a{color:#d9e5f3;text-decoration:none;font-size:14px}nav a:hover,nav a:focus{color:#65c1ff}
+main{width:min(900px,92vw);margin:clamp(45px,7vh,80px) auto 48px;text-align:center}
+.hero-logo{width:100px;height:70px;margin:0 auto 16px;position:relative;filter:drop-shadow(0 7px 20px #167ee766)}.hero-logo:before{content:"";position:absolute;left:0;bottom:0;border-left:34px solid transparent;border-right:34px solid transparent;border-bottom:53px solid #268cf0}.hero-logo:after{content:"";position:absolute;left:30px;bottom:0;border-left:35px solid transparent;border-right:35px solid transparent;border-bottom:70px solid #43bcff}
+h1{font-size:clamp(38px,6vw,62px);line-height:1.05;letter-spacing:-2.5px;margin:0}.accent{color:#40b4ff}.tagline{color:#d1dfef;font-size:clamp(16px,2vw,22px);margin:12px 0 26px}
+.search{display:flex;align-items:center;gap:13px;padding:8px 9px 8px 20px;background:rgba(9,24,42,.88);border:1px solid #7395b8;border-radius:999px;box-shadow:0 12px 38px #06111e55;max-width:790px;margin:0 auto}.search input{width:100%;min-width:0;background:transparent;border:0;outline:0;color:white;font:inherit;font-size:18px;padding:10px 0}.search input::placeholder{color:#afc0d3}.search button,.action{border:0;border-radius:999px;padding:12px 18px;background:linear-gradient(135deg,#3b9aff,#1678e8);color:white;font:inherit;font-weight:650;cursor:pointer}.search button{border-radius:50%;width:43px;height:43px;padding:0;flex:0 0 43px;font-size:24px}
+.section-title{font-size:20px;margin:48px 0 18px}.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.tile{display:flex;min-height:105px;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:16px 8px;border:1px solid var(--line);border-radius:16px;background:rgba(16,34,55,.86);color:#f7faff;text-decoration:none;transition:transform .15s,border-color .15s}.tile:hover,.tile:focus{transform:translateY(-3px);border-color:#58baff}.emoji{font-size:30px}.tile span:last-child{font-size:15px}
+.panel{margin:20px auto 0;max-width:790px;padding:22px;border:1px solid var(--line);border-radius:18px;background:rgba(9,24,42,.88);text-align:left}.panel h2{margin:0 0 8px;font-size:21px}.panel p{margin:0 0 16px;color:#c2d0df;font-size:14px}.link-form{display:flex;gap:10px}.link-form input{flex:1;min-width:0;padding:13px 15px;border:1px solid #7395b8;border-radius:12px;background:#081526;color:white;font:inherit}.link-form input:focus{outline:2px solid #42b5ff;outline-offset:1px}.status{min-height:20px;color:#c2d0df;font-size:13px;margin-top:10px!important}
+footer{border-top:1px solid var(--line);padding:22px 5vw;background:rgba(5,16,29,.62);display:flex;justify-content:center;gap:clamp(18px,5vw,70px);flex-wrap:wrap;color:#e2ebf7;font-size:14px}footer span{color:#aebfd2;font-size:12px;display:block;margin-top:3px}
+@media(max-width:620px){header{align-items:flex-start;flex-direction:column}nav{gap:14px}.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.link-form{flex-direction:column}main{margin-top:42px}.section-title{margin-top:38px}}
+</style>
+</head>
+<body>
+<div class="sky" aria-hidden="true"></div><div class="mountains" aria-hidden="true"></div>
+<header>
+  <div class="brand"><span class="logo" aria-hidden="true"></span><span>Summit<b>Search</b></span></div>
+  <nav aria-label="Search categories">
+    <a href="https://duckduckgo.com/">Web</a>
+    <a href="https://duckduckgo.com/?iax=images&ia=images">Images</a>
+    <a href="https://www.youtube.com/">Videos</a>
+    <a href="https://news.google.com/">News</a>
+    <a href="https://www.google.com/maps">Maps</a>
+  </nav>
+</header>
+<main>
+  <div class="hero-logo" aria-hidden="true"></div>
+  <h1>Summit<span class="accent">Search</span></h1>
+  <p class="tagline">Explore&nbsp; · &nbsp;Learn&nbsp; · &nbsp;Grow</p>
+  <form class="search" action="https://duckduckgo.com/" method="get" role="search">
+    <span aria-hidden="true">⌕</span><input name="q" type="search" placeholder="Search the web..." aria-label="Search the web" required>
+    <button type="submit" aria-label="Search">➜</button>
+  </form>
+  <h2 class="section-title">Quick Links</h2>
+  <div class="tiles">
+    <a class="tile" href="https://www.khanacademy.org/"><span class="emoji">🎓</span><span>Education</span></a>
+    <a class="tile" href="https://scholar.google.com/"><span class="emoji">📗</span><span>Research</span></a>
+    <a class="tile" href="https://science.nasa.gov/"><span class="emoji">🧪</span><span>Science</span></a>
+    <a class="tile" href="https://www.khanacademy.org/math"><span class="emoji">🧮</span><span>Math</span></a>
+    <a class="tile" href="https://www.history.com/"><span class="emoji">🌐</span><span>History</span></a>
+    <a class="tile" href="https://artsandculture.google.com/"><span class="emoji">🎨</span><span>Arts &amp; Humanities</span></a>
+    <a class="tile" href="https://www.computerhistory.org/"><span class="emoji">💻</span><span>Technology</span></a>
+    <a class="tile" href="https://apnews.com/"><span class="emoji">📰</span><span>News</span></a>
+  </div>
+
+  <h2 class="section-title">🎮 Games &amp; Your Links</h2>
+  <div class="tiles">
+    <a class="tile" href="https://www.coolmathgames.com/"><span class="emoji">🧩</span><span>Coolmath Games</span></a>
+    <a class="tile" href="https://lichess.org/"><span class="emoji">♟️</span><span>Chess</span></a>
+    <a class="tile" href="https://www.puzzles.org/"><span class="emoji">🧠</span><span>Puzzles</span></a>
+    <a class="tile" href="https://www.nasa.gov/learning-resources/"><span class="emoji">🚀</span><span>Learning Games</span></a>
+  </div>
+  <section class="panel" aria-labelledby="custom-title">
+    <h2 id="custom-title">🔗 Open a link</h2>
+    <p>Paste or type a website address below. It will open in a new tab if your browser and school network allow it.</p>
+    <form id="link-form" class="link-form">
+      <input id="custom-url" type="text" placeholder="https://example.com" aria-label="Website address" autocomplete="url" required>
+      <button class="action" type="submit">Open link ↗</button>
+    </form>
+    <p id="status" class="status" aria-live="polite"></p>
+  </section>
+</main>
+<footer>
+  <div>🛡️ Student Friendly<span>Useful links for learning.</span></div>
+  <div>🔒 Privacy Matters<span>This page does not save your searches or typed links.</span></div>
+  <div>🌱 Better Questions<span>Keep exploring and learning.</span></div>
+</footer>
+<script>
+document.getElementById('link-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  const field = document.getElementById('custom-url');
+  const status = document.getElementById('status');
+  let raw = field.value.trim();
+  if (!raw) { status.textContent = 'Enter a website address first.'; return; }
+  if (!/^https?:\/\//i.test(raw)) raw = 'https://' + raw;
+  let url;
+  try { url = new URL(raw); } catch (_) {
+    status.textContent = 'That address does not look valid. Try a full address like https://example.com.';
+    return;
+  }
+  if (url.protocol !== 'https:' && url.protocol !== 'http:') {
+    status.textContent = 'For safety, only http:// and https:// website links are supported.';
+    return;
+  }
+  const opened = window.open(url.href, '_blank', 'noopener,noreferrer');
+  if (opened) status.textContent = 'Link opened in a new tab. If it is blocked, use a school-approved site or ask your teacher.';
+  else status.textContent = 'Your browser blocked the new tab. Allow pop-ups for this file or copy the address into a new tab.';
+});
+</script>
+</body>
+</html>
